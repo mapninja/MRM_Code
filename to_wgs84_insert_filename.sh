@@ -1,8 +1,3 @@
-# GDAL Scripts and commands for prepping MRM geojson for BigQuery
-
-## Convert to valid wgs84 geojson, and add `filename` property
-
-```bash
 #!/bin/bash
 
 # Ensure the output directory exists
@@ -26,14 +21,3 @@ export -f process_geojson
 
 # Use parallel to process files concurrently, utilizing all available CPU cores
 find . -name "*.geojson" | parallel --progress --jobs 100% process_geojson {}
-
-```
-
-This script performs the following steps:
-
-1. Creates the output directory `../wgs84` if it does not exist.
-2. Iterates over each `.geojson` file in the current directory.
-3. Extracts the base filename without the `.geojson` extension.
-4. Uses `ogr2ogr` to reproject the file to EPSG:4326 (WGS84) and saves the output to the `../wgs84` directory with a new filename.
-5. Uses `jq` to add a `filename` property to each feature in the reprojected GeoJSON file, setting its value to the base filename.
-6. Renames the temporary file to the final output file.
