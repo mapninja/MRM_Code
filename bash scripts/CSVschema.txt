@@ -1,0 +1,1 @@
+SCHEMA="WKT:STRING,text:STRING,score:FLOAT,img_coordinates:STRING,postocr_label:STRING,filename:STRING"SCHEMA="WKT:STRING,text:STRING,score:FLOAT,img_coordinates:STRING,postocr_label:STRING,filename:STRING"
