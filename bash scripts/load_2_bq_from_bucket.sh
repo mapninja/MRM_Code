@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Redirect all output (stdout and stderr) to a log file
+exec > >(tee -a ./log.txt) 2>&1
+
 # Set the BigQuery dataset and table
 DATASET_NAME="sul-g-earth-engine-access:machines_reading_maps"   # Replace with your dataset name
 TABLE_NAME="mrm_v3_cleaned_annotations"       # Replace with your table name
